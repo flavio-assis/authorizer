@@ -1,11 +1,20 @@
 import os
 from logging import getLogger, StreamHandler
 
-from utils.datetime_utils import get_difftime
+from src.utils.datetime_utils import get_difftime
 
 logger = getLogger(__name__)
 logger.setLevel(os.getenv('LOG_LEVEL', 'INFO'))
 logger.addHandler(StreamHandler())
+
+
+def account_already_initialized(account):
+    if account != {}:
+        return 'account-already-initialized'
+
+def account_not_initialized(account):
+    if account == {}:
+        return 'account-not-initialized'
 
 
 def card_not_active(account):
@@ -46,7 +55,7 @@ def double_transaction(transaction, transactions):
     return None
 
 
-class Validador:
+class Validator:
     def __init__(self, func=None):
         if func is not None:
             self.execute = func
