@@ -1,10 +1,9 @@
 import json
-import os
-from logging import getLogger, StreamHandler
 from sys import argv
 
 from src.models.account import Account
 from src.models.transaction import Transaction
+from src.utils.logger import logger
 from src.validator import (
     Validator,
     account_already_initialized,
@@ -15,13 +14,9 @@ from src.validator import (
     double_transaction
 )
 
-logger = getLogger(__name__)
-logger.setLevel(os.getenv('LOG_LEVEL', 'INFO'))
-logger.addHandler(StreamHandler())
-
 
 def authorizer(json_file_path):
-    account = {}
+    account = Account()
     transactions = []
 
     file_lines = [line.strip() for line in open(json_file_path)]
@@ -72,7 +67,6 @@ def authorizer(json_file_path):
                 if not violations:
                     account.withdraw(transaction.amount)
                     transactions.append(transaction)
-
         info_account: dict = {'account': json.loads(f'{account}'), 'violations': violations}
         logger.info(json.dumps(info_account))
 
