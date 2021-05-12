@@ -30,7 +30,9 @@ python ./src/authorizer.py <local_do_arquivo>
 Para a realização dos testes de unidade e de integração decidi utilizar a biblioteca unittest, pois ser nativa e de eficaz e rápida implementação.
 
 ---
-## Desafios
-
----
-## Aprendizados
+## Desafios e aprendizados
+Particularmente, achei muito desafiador e interessante o code challenge.
+Apesar de simples em sua natureza, diversos conceitos são necessários para a sua conclusão.
+Desde padrão de estrutura de código para permitir que novas validações sejam implementadas de forma fácil, até a preocupação com o tamanho
+do arquivo e como ele deve ser lido como se fosse um stream, já que seu gerenciamento é em memória, se fazem super importantes
+na construção da solução.

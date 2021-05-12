@@ -17,7 +17,3 @@ virtualenv:
 test:
 	export PYTHONPATH=${PYTHONPATH}:. \
 	 && python3 -m unittest discover tests/
-
-coverage:
-	export PYTHONPATH=${PYTHONPATH}:. \
-	 && coverage run -m unittest discover tests/

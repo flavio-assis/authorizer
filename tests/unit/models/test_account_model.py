@@ -3,7 +3,7 @@ from unittest import TestCase
 from src.models.account import Account
 
 
-class TestAccountRepr(TestCase):
+class TestAccountModel(TestCase):
     def setUp(self) -> None:
         self.active_card = True
         self.available_limit = 100

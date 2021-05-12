@@ -1,5 +1,14 @@
-# Authorizer Project
+---
+Project: Authorizer
+languages:
+  - python 3.9
+  
+Products:
+  - Python 3.9
+  - Docker 20.10.5
+---
 
+## Description
 This application implements a transaction authorizer.
 
 ## How does it works?
@@ -55,69 +64,70 @@ They are unit and integration tests built with the python package `unittest`
 
 ## Project structure
 ```
-.
-├── CHAGELOG.md
-├── Dockerfile
-├── LICENSE
-├── Makefile
-├── README.md
-├── THEROADSOFAR.md
-├── pyproject.toml
-├── setup.py
-├── src
-│   ├── __init__.py
-│   ├── authorizer.egg-info
-│   │   ├── PKG-INFO
-│   │   ├── SOURCES.txt
-│   │   ├── dependency_links.txt
-│   │   ├── entry_points.txt
-│   │   └── top_level.txt
-│   ├── authorizer.py
-│   ├── models
-│   │   ├── __init__.py
-│   │   ├── account.py
-│   │   └── transaction.py
-│   ├── utils
-│   │   ├── __init__.py
-│   │   ├── datetime_utils.py
-│   │   └── logger.py
-│   └── validator.py
-└── tests
-    ├── __init__.py
-    ├── integration
-    │   ├── __init__.py
-    │   ├── files
-    │   │   ├── inputs
-    │   │   │   ├── operations_account_already_initialized
-    │   │   │   ├── operations_account_not_initialized
-    │   │   │   ├── operations_card_not_active
-    │   │   │   ├── operations_double_transaction
-    │   │   │   ├── operations_high_frequency_small_interval
-    │   │   │   ├── operations_insufficient_limit
-    │   │   │   └── operations_no_violations
-    │   │   └── outputs
-    │   │       ├── operations_account_already_initialized
-    │   │       ├── operations_account_not_initialized
-    │   │       ├── operations_card_not_active
-    │   │       ├── operations_double_transaction
-    │   │       ├── operations_high_frequency_small_interval
-    │   │       ├── operations_insufficient_limit
-    │   │       └── operations_no_violations
-    │   └── test_integrations.py
-    ├── unit
-    │   ├── __init__.py
-    │   ├── models
-    │   │   ├── __init__.py
-    │   │   └── test_account_repr.py
-    │   └── validators
-    │       ├── __init__.py
-    │       ├── test_account_already_initialized.py
-    │       ├── test_account_not_initialized.py
-    │       ├── test_card_not_active.py
-    │       ├── test_double_transaction.py
-    │       ├── test_high_frequency_small_interval.py
-    │       └── test_insufficient_limit.py
-    └── utils
-        ├── __init__.py
-        └── capture_stdout.py
+.                                                                                   
+├── CHAGELOG.md                                                      # Keep track of the modifications
+├── Dockerfile                                                       # Dockerfile definition
+├── LICENSE                                                          # MIT License
+├── Makefile                                                         # Makefile with the most used actions
+├── README.md                                                        # This README
+├── THEROADSOFAR.md                                                  # Explains a little about how I get to this solution
+├── pyproject.toml                                                   # Python project constraints
+├── setup.py                                                         # Python setup configuration
+├── src                                                              # Main logic folder
+│   ├── __init__.py                                                  
+│   ├── authorizer.py                                                # The authorizer itself
+│   ├── models                                                       # Some defined modules
+│   │   ├── __init__.py                                              
+│   │   ├── account.py                                               
+│   │   ├── context.py                                               
+│   │   ├── transaction.py                                           
+│   │   └── validator.py                                             
+│   ├── utils                                                        # Common utils for the source code
+│   │   ├── __init__.py                                              
+│   │   ├── datetime_utils.py                                        
+│   │   ├── event.py                                                 
+│   │   └── logger.py                                                
+│   └── validators                                                   # Validators' logic
+│       ├── __init__.py                                              
+│       ├── account_validators.py                                    
+│       └── transactions_validators.py                               
+└── tests                                                            # Tests folder
+    ├── __init__.py                                                  
+    ├── integration                                                  # Imtegration tests folder
+    │   ├── __init__.py                                              
+    │   ├── files                                                    # Files to test the integration
+    │   │   ├── inputs                                               # Input files folder 
+    │   │   │   ├── operations_account_already_initialized           
+    │   │   │   ├── operations_account_not_initialized               
+    │   │   │   ├── operations_card_not_active                       
+    │   │   │   ├── operations_double_transaction                    
+    │   │   │   ├── operations_high_frequency_small_interval         
+    │   │   │   ├── operations_insufficient_limit                    
+    │   │   │   └── operations_no_violations                         
+    │   │   └── outputs                                              # Output files folder
+    │   │       ├── operations_account_already_initialized           
+    │   │       ├── operations_account_not_initialized               
+    │   │       ├── operations_card_not_active                       
+    │   │       ├── operations_double_transaction                    
+    │   │       ├── operations_high_frequency_small_interval         
+    │   │       ├── operations_insufficient_limit                    
+    │   │       └── operations_no_violations                         
+    │   └── test_integrations.py                                     
+    ├── unit                                                         # Unit tests folder
+    │   ├── __init__.py                                              
+    │   ├── models                                                   # Tests for models
+    │   │   ├── __init__.py                                          
+    │   │   ├── test_account_model.py                                
+    │   │   └── test_validator_model.py                              
+    │   └── validators                                               # Tests for validators
+    │       ├── __init__.py                                          
+    │       ├── test_account_already_initialized.py                  
+    │       ├── test_account_not_initialized.py                      
+    │       ├── test_card_not_active.py                              
+    │       ├── test_double_transaction.py                           
+    │       ├── test_high_frequency_small_interval.py                
+    │       └── test_insufficient_limit.py                           
+    └── utils                                                        # Common utils for the tests code
+        ├── __init__.py                                              
+        └── capture_stdout.py                                        
 ```

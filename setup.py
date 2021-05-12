@@ -14,11 +14,11 @@ setup(
     long_description_content_type='text/markdown',
     classifiers=[
         'Programming Language :: Python :: 3',
-        'License :: OSI Approved :: Apache License, Version 2.0',
+        'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
     ],
     packages=find_packages(exclude=['tests*']),
-    python_requires='>=3.7',
+    python_requires='>=3.9',
     entry_points={
         'console_scripts': ['authorize=src.authorizer:main']
     }

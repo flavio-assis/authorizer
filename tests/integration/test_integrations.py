@@ -1,6 +1,6 @@
+import os
 import subprocess
 from unittest import TestCase
-import os
 
 INPUTS_DIR = './tests/integration/files/inputs/'
 OUTPUTS_DIR = './tests/integration/files/outputs/'
