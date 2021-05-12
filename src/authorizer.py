@@ -1,7 +1,7 @@
 import json
 from sys import argv
 
-from src.models import Validator, Context
+from src.models import Context
 from src.utils.event import event_reader
 from src.utils.logger import logger
 from src.validators import get_violations

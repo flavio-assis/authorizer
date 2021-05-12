@@ -93,10 +93,10 @@ They are unit and integration tests built with the python package `unittest`
 │       └── transactions_validators.py                               
 └── tests                                                            # Tests folder
     ├── __init__.py                                                  
-    ├── integration                                                  # Imtegration tests folder
+    ├── integration                                                  # Integration tests
     │   ├── __init__.py                                              
-    │   ├── files                                                    # Files to test the integration
-    │   │   ├── inputs                                               # Input files folder 
+    │   ├── files                                                    
+    │   │   ├── inputs                                               
     │   │   │   ├── operations_account_already_initialized           
     │   │   │   ├── operations_account_not_initialized               
     │   │   │   ├── operations_card_not_active                       
@@ -104,7 +104,7 @@ They are unit and integration tests built with the python package `unittest`
     │   │   │   ├── operations_high_frequency_small_interval         
     │   │   │   ├── operations_insufficient_limit                    
     │   │   │   └── operations_no_violations                         
-    │   │   └── outputs                                              # Output files folder
+    │   │   └── outputs                                              
     │   │       ├── operations_account_already_initialized           
     │   │       ├── operations_account_not_initialized               
     │   │       ├── operations_card_not_active                       
@@ -113,21 +113,26 @@ They are unit and integration tests built with the python package `unittest`
     │   │       ├── operations_insufficient_limit                    
     │   │       └── operations_no_violations                         
     │   └── test_integrations.py                                     
-    ├── unit                                                         # Unit tests folder
-    │   ├── __init__.py                                              
-    │   ├── models                                                   # Tests for models
-    │   │   ├── __init__.py                                          
-    │   │   ├── test_account_model.py                                
-    │   │   └── test_validator_model.py                              
-    │   └── validators                                               # Tests for validators
-    │       ├── __init__.py                                          
-    │       ├── test_account_already_initialized.py                  
-    │       ├── test_account_not_initialized.py                      
-    │       ├── test_card_not_active.py                              
-    │       ├── test_double_transaction.py                           
-    │       ├── test_high_frequency_small_interval.py                
-    │       └── test_insufficient_limit.py                           
-    └── utils                                                        # Common utils for the tests code
+    └── unit                                                         # Unittests
         ├── __init__.py                                              
-        └── capture_stdout.py                                        
+        ├── models                                                   
+        │   ├── __init__.py                                          
+        │   ├── test_account_model.py                                
+        │   ├── test_context_model.py                                
+        │   ├── test_transaction_model.py                            
+        │   └── test_validator_model.py                              
+        ├── utils                                                    
+        │   ├── __init__.py                                          
+        │   ├── test_datetime_utils.py                               
+        │   ├── test_event.py                                        
+        │   └── test_logger.py                                       
+        └── validators                                               
+            ├── __init__.py                                          
+            ├── test_account_already_initialized.py                  
+            ├── test_account_not_initialized.py                      
+            ├── test_card_not_active.py                              
+            ├── test_double_transaction.py                           
+            ├── test_get_violations.py                               
+            ├── test_high_frequency_small_interval.py                
+            └── test_insufficient_limit.py                           
 ```
