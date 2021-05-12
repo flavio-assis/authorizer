@@ -1,3 +1,4 @@
+from src.models import Validator
 from src.validators.account_validators import *
 from src.validators.transactions_validators import *
 
@@ -11,3 +12,9 @@ VALIDATORS_MAPPER = {
         double_transaction
     ]
 }
+
+
+def get_violations(**kwargs) -> list[str]:
+    validator = Validator(**kwargs)
+    violations = validator.execute(VALIDATORS_MAPPER)
+    return violations

@@ -4,20 +4,21 @@ from src.utils.datetime_utils import get_difftime
 
 def account_not_initialized(context: Context) -> str or None:
     account = context.account
-    if account.active_card is None and account.available_limit is None:
+    if not account.is_active():
         return 'account-not-initialized'
 
 
 def card_not_active(context: Context) -> str or None:
     account = context.account
-    if not account.active_card:
+    if not account.active_card and account.is_active():
         return 'card-not-active'
 
 
 def insufficient_limit(context: Context) -> str or None:
     account = context.account
     transaction = context.transaction
-    if account.available_limit - transaction.amount < 0:
+
+    if account.is_active() and (account.available_limit - transaction.amount < 0):
         return 'insufficient-limit'
 
 

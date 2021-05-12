@@ -4,7 +4,7 @@ from sys import argv
 from src.models import Validator, Context
 from src.utils.event import event_reader
 from src.utils.logger import logger
-from src.validators import VALIDATORS_MAPPER
+from src.validators import get_violations
 
 
 def authorizer(json_file_path):
@@ -16,8 +16,7 @@ def authorizer(json_file_path):
         json_input = json.loads(line)
         event_type, event = event_reader(json_input)
 
-        validator = Validator(event_type, event, context)
-        violations = validator.execute(VALIDATORS_MAPPER)
+        violations = get_violations(event_type=event_type, event=event, context=context)
 
         if not violations:
             if event_type == 'account':
