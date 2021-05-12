@@ -29,7 +29,8 @@ def high_frequency_small_interval(context: Context) -> str or None:
         return None
     counter = 0
     for item in range(len(transactions)):
-        if get_difftime(transaction.time, transactions[item].time).seconds < 180:
+        time_diff_in_seconds = get_difftime(transaction.time, transactions[item].time).seconds
+        if time_diff_in_seconds < 180:
             counter += 1
             if counter == 3:
                 return 'high-frequency-small-interval'
@@ -43,5 +44,6 @@ def double_transaction(context: Context) -> str or None:
     for item in range(len(transactions)):
         if transaction.merchant == transactions[item].merchant:
             if transaction.amount == transactions[item].amount:
-                if get_difftime(transaction.time, transactions[item].time).seconds < 120:
+                time_diff_in_seconds = get_difftime(transaction.time, transactions[item].time).seconds
+                if time_diff_in_seconds < 120:
                     return 'double-transaction'
