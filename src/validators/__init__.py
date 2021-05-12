@@ -14,7 +14,7 @@ VALIDATORS_MAPPER = {
 }
 
 
-def get_violations(**kwargs) -> list[str]:
+def get_violations(validators=VALIDATORS_MAPPER, **kwargs) -> list[str]:
     validator = Validator(**kwargs)
-    violations = validator.execute(VALIDATORS_MAPPER)
+    violations = validator.execute(validators)
     return violations
