@@ -1,4 +1,5 @@
-from src.models import Account, Transaction
+from src.models.account import Account
+from src.models.transaction import Transaction
 
 
 class Context:

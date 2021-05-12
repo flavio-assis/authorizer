@@ -6,6 +6,7 @@ from src.utils.logger import logger
 
 @dataclass
 class Account:
+    id: int = None
     available_limit: int = None
     active_card: bool = None
 
@@ -36,4 +37,4 @@ class Account:
     def __repr__(self):
         if not self.is_active():
             return '{}'
-        return json.dumps({'active-card': self.active_card, 'available-limit': self.available_limit})
+        return json.dumps({'id': self.id, 'active-card': self.active_card, 'available-limit': self.available_limit})
