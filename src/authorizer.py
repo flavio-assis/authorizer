@@ -34,8 +34,11 @@ def authorizer(json_file_path: str) -> None:
 
 
 def main():
-    json_file_path = argv[1]
-    authorizer(json_file_path)
+    try:
+        json_file_path = argv[1]
+        authorizer(json_file_path)
+    except Exception as err:
+        logger.error(f'An error occurred reading the input file: {err}')
 
 
 if __name__ == '__main__':
