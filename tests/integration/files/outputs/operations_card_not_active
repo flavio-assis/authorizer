@@ -1,2 +1,2 @@
 {"account": {"id": 1, "active-card": false, "available-limit": 750}, "violations": []}
-{"transaction": {"account-id": 1, "active-card": false, "available-limit": 750}, "violations": ["card-not-active"]}
+{"account": {"id": 1, "active-card": false, "available-limit": 750}, "violations": ["card-not-active"]}
