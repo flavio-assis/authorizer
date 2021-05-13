@@ -1,3 +1,3 @@
-{"transaction": {"merchant": "Uber Eats", "amount": 25, "time": "2020-12-01T11:07:00.000Z"}}
-{"account": {"active-card": true, "available-limit": 225}}
-{"transaction": {"merchant": "Uber Eats", "amount": 25, "time": "2020-12-01T11:07:00.000Z"}}
+{"transaction": {"account-id": 1, "merchant": "Uber Eats", "amount": 25, "time": "2020-12-01T11:07:00.000Z"}}
+{"account": {"id": 1, "active-card": true, "available-limit": 225}}
+{"transaction": {"account-id": 1, "merchant": "Uber Eats", "amount": 25, "time": "2020-12-01T11:07:00.000Z"}}
