@@ -23,6 +23,9 @@ class Validator:
         self._update_context()
 
     def _update_context(self) -> None:
+        """
+        Update context inserting the last transaction
+        """
         if self.event_type == 'transaction':
             self.context.transaction = self.event
 

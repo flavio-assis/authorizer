@@ -7,7 +7,11 @@ from src.utils.logger import logger
 from src.validators import get_violations
 
 
-def authorizer(json_file_path):
+def authorizer(json_file_path: str) -> None:
+    """
+    Authorizer function
+    :param json_file_path: path of the input file
+    """
     context = Context()
 
     file_lines = [line.strip() for line in open(json_file_path)]

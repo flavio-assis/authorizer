@@ -6,6 +6,9 @@ from src.utils.logger import logger
 
 @dataclass
 class Account:
+    """
+    Account model, used to implement an event of type account
+    """
     available_limit: int = None
     active_card: bool = None
 

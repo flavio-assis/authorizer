@@ -2,7 +2,13 @@ from src.models import Account, Transaction
 from src.utils.logger import logger
 
 
-def event_reader(event: dict):
+def event_reader(event: dict) -> tuple[str, Account or Transaction]:
+    """
+    Categorizes events
+    :param event: dict with the event input
+    :return: Event type and the event object
+    :rtype: tuple[str, Account or Transaction]
+    """
     if 'account' in event.keys():
         account = Account(
             available_limit=event.get('account').get('available-limit'),
