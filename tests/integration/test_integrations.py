@@ -11,7 +11,7 @@ def test_output(file_name):
         expected_output = output_file.read()
 
     stdout = subprocess.getoutput(
-        cmd=f'python3 src/authorizer.py {os.path.join(INPUTS_DIR, file_name)}'
+        cmd=f'python3 src/authorizer.py < {os.path.join(INPUTS_DIR, file_name)}'
     )
     assert stdout == expected_output
 

@@ -1,5 +1,5 @@
 import json
-from sys import argv
+import sys
 
 from src.models import Context
 from src.utils.event import event_reader
@@ -7,14 +7,14 @@ from src.utils.logger import logger
 from src.validators import get_violations
 
 
-def authorizer(json_file_path: str) -> None:
+def authorizer(json_file) -> None:
     """
     Authorizer function
-    :param json_file_path: path of the input file
+    :param json_file: input file from stdin
     """
     context = Context()
 
-    file_lines = [line.strip() for line in open(json_file_path)]
+    file_lines = [line.strip() for line in json_file]
 
     for line in file_lines:
         json_input = json.loads(line)
@@ -35,8 +35,8 @@ def authorizer(json_file_path: str) -> None:
 
 def main():
     try:
-        json_file_path = argv[1]
-        authorizer(json_file_path)
+        json_file = sys.stdin
+        authorizer(json_file)
     except Exception as err:
         logger.error(f'An error occurred reading the input file: {err}')
 

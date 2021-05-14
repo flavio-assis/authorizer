@@ -6,7 +6,7 @@ docker-build:
 	docker build -t $(IMAGE_NAME):$(VERSION) .
 
 authorize:
-	docker run -v $(INPUT_PATH):/operations -t authorizer:$(VERSION) /operations
+	docker run -i authorizer:$(VERSION) < $(INPUT_PATH)
 
 virtualenv:
 	python3 -m venv venv --prompt '• authorizer •'

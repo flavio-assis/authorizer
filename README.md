@@ -52,7 +52,7 @@ source venv/bin/activate
 ```
 Finally
 ```
-authorize <input_file_path>
+authorize < <input_file_path>
 ```
 
 ## Running the tests 
